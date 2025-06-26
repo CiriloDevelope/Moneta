@@ -1,0 +1,331 @@
+ 
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap'); 
+
+:root {
+     
+    --color-background-primary: #16201B;
+    --color-background-secondary: #22332B;
+    --color-background-card: #2C4236;
+    --color-accent-primary: #36D186;
+    --color-accent-secondary: #29A66B;
+    --color-text-primary: #F7FAFC;
+    --color-text-secondary: #A0B0A7;
+    --color-border-subtle: rgba(54, 209, 134, 0.2);
+
+    --font-heading: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --spacing-xs: 8px;
+    --spacing-sm: 16px;
+    --spacing-md: 24px;
+    --spacing-lg: 40px;
+
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 16px;
+    
+}
+
+body {
+    font-family: var(--font-body); /* Usando a fonte do padrão */
+    text-align: center;
+    background-color: var(--color-background-primary); /* Cor de fundo principal do seu site */
+    margin: 0;
+    padding: 0;
+    color: var(--color-text-primary); /* Cor do texto principal */
+    line-height: 1.6; /* Para melhor legibilidade */
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background-color: var(--color-background-secondary); /* Cor de fundo da sidebar */
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    transition: width 0.3s ease-in-out;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5); /* Sombra para destacar */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+}
+
+.sidebar:hover {
+    width: 200px; /* Largura de hover igual ao seu design original */
+}
+
+.sidebar h1 {
+    color: var(--color-text-primary); /* Cor do texto primária */
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: var(--spacing-md) 0; /* Espaçamento padronizado */
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    border-bottom: 1px solid var(--color-border-subtle); /* Borda sutil */
+}
+
+.sidebar:hover h1 {
+    opacity: 1;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: var(--spacing-md) 0; /* Espaçamento padronizado */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; Removido para ter um fluxo de cima para baixo mais natural com gap */
+    gap: var(--spacing-sm); /* Espaçamento padronizado entre os itens */
+}
+
+.sidebar ul.menus {
+    padding: var(--spacing-md) 0;
+    gap: var(--spacing-sm);
+}
+
+.sidebar ul li {
+    width: 100%;
+}
+
+.sidebar ul li a {
+    display: flex;
+    align-items: center;
+    font-size: 1.1em;
+    gap: var(--spacing-xs); /* Espaçamento padronizado entre ícone e texto */
+    color: var(--color-text-primary); /* Cor do texto primária */
+    text-decoration: none;
+    padding: var(--spacing-sm) var(--spacing-md); /* Espaçamento padronizado */
+    box-sizing: border-box;
+    width: 100%;
+    transition: background-color 0.3s, color 0.3s;
+    /* margin-bottom: 100px; Removido: isso criaria um espaçamento muito grande entre os itens */
+}
+
+.sidebar ul li a img {
+    width: 24px; /* Tamanho do ícone igual ao seu design original */
+    height: 24px; /* Tamanho do ícone igual ao seu design original */
+    filter: invert(100%) saturate(0%) brightness(100%); /* Cor do ícone para branco no estado normal */
+    flex-shrink: 0;
+}
+
+.sidebar ul li a span {
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.sidebar:hover ul li a span {
+    opacity: 1;
+}
+
+.sidebar ul li a:hover {
+    background-color: rgba(54, 209, 134, 0.1); /* Cor de hover usando o accent primary com opacidade */
+    border-radius: var(--border-radius-sm); /* Raio da borda padronizado */
+    color: var(--color-accent-primary); /* Cor do texto de hover */
+}
+
+.sidebar ul li a:hover img {
+    filter: none; /* Remove o filtro de inversão no hover para ícones coloridos */
+}
+
+/* CONTEÚDO */
+
+.content {
+    margin-left: 80px; /* Initial margin */
+    padding: var(--spacing-md); /* Espaçamento padronizado */
+    width: calc(100% - 80px);
+    transition: margin-left 0.3s ease-in-out;
+    color: var(--color-text-primary); /* Cor do texto principal */
+}
+
+.sidebar:hover ~ .content {
+    margin-left: 200px; /* Margem ajustada para a largura de hover da sidebar */
+    width: calc(100% - 200px);
+}
+
+.container {
+    max-width: 1600px; /* Largura máxima do seu design original */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o container */
+    padding: var(--spacing-lg) var(--spacing-md); /* Espaçamento padronizado */
+    display: flex; /* Adicionado para organizar os itens dentro */
+    flex-direction: column; /* Organiza os itens em coluna */
+    gap: var(--spacing-lg); /* Espaçamento entre seções */
+    align-items: center; /* Centraliza os itens horizontalmente */
+}
+
+/* Ajuste a margem do container para levar em conta a sidebar, como no seu style.css original */
+.container.with-sidebar { /* Adicione esta classe ao seu container no HTML */
+    margin-left: calc(80px + (100% - 1600px - 80px) / 2);
+}
+
+.sidebar:hover ~ .content .container.with-sidebar {
+    margin-left: calc(200px + (100% - 1600px - 200px) / 2);
+}
+
+
+h1 {
+    font-family: var(--font-heading); /* Fonte de título do padrão */
+    color: var(--color-accent-primary); /* Cor do título */
+    font-size: 2.5em; /* Tamanho de título principal do padrão */
+    font-weight: 700; /* Peso da fonte do padrão */
+    text-align: center;
+}
+
+.content-section { /* Renomeado de .content para evitar conflito e para melhor semântica */
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem a linha em telas menores */
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha os itens ao topo */
+    gap: var(--spacing-lg); /* Espaçamento padronizado entre os elementos */
+    margin: var(--spacing-lg) 0; /* Margem padronizada */
+    width: 100%; /* Garante que ocupe toda a largura disponível */
+}
+
+/* INFO BOX E DROPDOWN */
+
+.info-box,
+.dropdown-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-background-secondary); /* Cor de fundo de seção/card */
+    color: var(--color-text-primary); /* Cor do texto principal */
+    padding: var(--spacing-sm) var(--spacing-md); /* Espaçamento padronizado */
+    border-radius: var(--border-radius-md); /* Raio da borda padronizado */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais suave, como nos cards */
+    font-weight: 600; /* Peso da fonte Inter */
+    font-size: 1em;
+    text-transform: uppercase;
+    flex-grow: 1; /* Permite que ocupe o espaço disponível */
+    min-width: 250px; /* Um min-width para evitar que fiquem muito pequenos */
+    border: 1px solid var(--color-border-subtle); /* Borda sutil */
+    gap: var(--spacing-sm); /* Espaçamento padronizado entre ícone e texto */
+}
+
+.icon-container {
+    margin-right: var(--spacing-xs); /* Espaçamento padronizado */
+}
+
+
+.grafico {
+    width: 100%;
+    max-width: 95%; /* ou 100% se quiser ocupar tudo */
+    margin: 0 auto;
+    padding: var(--spacing-md);
+    box-sizing: border-box;
+}
+
+#tradingview_chart {
+    width: 100% !important;
+    height: 700px !important;
+}
+
+
+/* LINKS */
+
+a {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor do texto do elemento pai */
+    transition: color 0.3s ease; /* Transição suave para hover */
+}
+
+a:hover {
+    color: var(--color-accent-primary); /* Cor de destaque no hover, como nos links da sidebar */
+}
+
+a:active {
+    text-decoration: none;
+    color: var(--color-text-primary); /* Cor primária no clique */
+}
+
+/* Media Queries (ajustadas para o novo setup) */
+
+@media (max-width: 1200px) {
+    .container.with-sidebar {
+        max-width: 100%;
+        margin-left: 80px; /* Margem inicial para sidebar fechada */
+        margin-right: auto;
+    }
+
+    .sidebar:hover ~ .content .container.with-sidebar {
+        margin-left: 200px; /* Margem para sidebar aberta */
+    }
+
+    .content-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .info-box,
+    .dropdown-container {
+        width: 100%;
+        max-width: 400px; /* Limita a largura em telas menores */
+        margin-left: 0; /* Remove a margem extra */
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px;
+    }
+
+    .sidebar:hover {
+        width: 140px;
+    }
+
+    .content {
+        margin-left: 60px;
+        padding: var(--spacing-sm);
+    }
+
+    .sidebar:hover ~ .content {
+        margin-left: 140px;
+    }
+
+    .container.with-sidebar {
+        margin-left: 60px; /* Ajusta a margem para sidebar fechada */
+    }
+
+    .sidebar:hover ~ .content .container.with-sidebar {
+        margin-left: 140px; /* Ajusta a margem para sidebar aberta */
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .info-box,
+    .dropdown-container {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.9em;
+    }
+
+    .chart-container {
+        padding: var(--spacing-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .container.with-sidebar {
+        padding: var(--spacing-sm);
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+    .info-box,
+    .dropdown-container {
+        flex-direction: column; /* Stack items vertically on very small screens */
+        text-align: center;
+    }
+    .icon-container {
+        margin-right: 0;
+        margin-bottom: var(--spacing-xs);
+    }
+}
