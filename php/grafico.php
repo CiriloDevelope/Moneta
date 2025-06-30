@@ -43,7 +43,7 @@
                             "symbol": "FX:BTCUSD",  // EUR/USD - Pode mudar para BTC/USD, etc.
                             "interval": "1",
                             "timezone": "Etc/UTC",
-                            "theme": "light",
+                            "theme": "dark",
                             "style": "1",
                             "locale": "br",
                             "enable_publishing": false,
