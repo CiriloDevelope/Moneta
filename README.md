@@ -46,3 +46,23 @@ pip install -r requirements.txt
 
 # Inicie a API (necessária para o funcionamento do site)
 uvicorn api:app --reload
+
+
+
+---
+
+## 📸 Interface da Plataforma
+
+### 🖼️ Página Inicial
+![Página Inicial](assets/image.png)
+
+### 📊 Gráfico em Tempo Real
+![Gráfico Bitcoin](assets/grafico.png)
+
+### 📈 Painel Analítico
+![Gráfico Analítico](assets/analitico.png)
+
+### 📋 Tabela de Dados do Ativo
+![Tabela Bitcoin](assets/tabela.png)
+
+---
