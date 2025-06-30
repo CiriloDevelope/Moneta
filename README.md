@@ -54,15 +54,15 @@ uvicorn api:app --reload
 ## 📸 Interface da Plataforma
 
 ### 🖼️ Página Inicial
-![Página Inicial](assets/image.png)
+![Página Inicial](Moneta/assets/image.png)
 
 ### 📊 Gráfico em Tempo Real
-![Gráfico Bitcoin](assets/grafico.png)
+![Gráfico Bitcoin](Moneta/assets/grafico.png)
 
 ### 📈 Painel Analítico
-![Gráfico Analítico](assets/analitico.png)
+![Gráfico Analítico](Moneta/assets/analitico.png)
 
 ### 📋 Tabela de Dados do Ativo
-![Tabela Bitcoin](assets/tabela.png)
+![Tabela Bitcoin](Moneta/assets/tabela.png)
 
 ---
